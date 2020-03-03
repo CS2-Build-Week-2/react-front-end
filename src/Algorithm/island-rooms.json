@@ -736,5 +736,466 @@
 		"cooldown": 1,
 		"errors": [],
 		"messages": []
+	},
+	{
+		"room_id": 2,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(60,59)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [
+			"Eli Sacks"
+		],
+		"items": [],
+		"exits": [
+			"n",
+			"s",
+			"e"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 3,
+		"title": "Mt. Holloway",
+		"description": "You are at the base of a large, looming mountain.",
+		"coordinates": "(61,59)",
+		"elevation": 1,
+		"terrain": "MOUNTAIN",
+		"players": [
+			"Face O' Lambda"
+		],
+		"items": [],
+		"exits": [
+			"s",
+			"e",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 3,
+		"title": "Mt. Holloway",
+		"description": "You are at the base of a large, looming mountain.",
+		"coordinates": "(61,59)",
+		"elevation": 1,
+		"terrain": "MOUNTAIN",
+		"players": [
+			"Face O' Lambda"
+		],
+		"items": [],
+		"exits": [
+			"s",
+			"e",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 9,
+		"title": "Mt. Holloway",
+		"description": "You are on the side of a steep incline.",
+		"coordinates": "(61,58)",
+		"elevation": 2,
+		"terrain": "MOUNTAIN",
+		"players": [
+			"spmcdonnell"
+		],
+		"items": [],
+		"exits": [
+			"n",
+			"s",
+			"e"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 12,
+		"title": "Mt. Holloway",
+		"description": "You are on the side of a steep incline.",
+		"coordinates": "(61,57)",
+		"elevation": 3,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"s",
+			"e",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 14,
+		"title": "Mt. Holloway",
+		"description": "You are on the side of a steep incline.",
+		"coordinates": "(62,57)",
+		"elevation": 2,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [],
+		"exits": [
+			"s",
+			"e",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 14,
+		"title": "Mt. Holloway",
+		"description": "You are on the side of a steep incline.",
+		"coordinates": "(62,57)",
+		"elevation": 2,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [],
+		"exits": [
+			"s",
+			"e",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 34,
+		"title": "Mt. Holloway",
+		"description": "You are at the base of a large, looming mountain.",
+		"coordinates": "(62,56)",
+		"elevation": 1,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"s",
+			"e"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 50,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(62,55)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"s"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 89,
+		"title": "Mt. Holloway",
+		"description": "You are at the base of a large, looming mountain.",
+		"coordinates": "(62,54)",
+		"elevation": 1,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"s"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 93,
+		"title": "Mt. Holloway",
+		"description": "You are on the side of a steep incline.",
+		"coordinates": "(62,53)",
+		"elevation": 2,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 108,
+		"title": "Mt. Holloway",
+		"description": "You are on the side of a steep incline.",
+		"coordinates": "(61,53)",
+		"elevation": 3,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"s",
+			"e"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 117,
+		"title": "Mt. Holloway",
+		"description": "You are on the side of a steep incline.",
+		"coordinates": "(61,52)",
+		"elevation": 2,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"s",
+			"e",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 166,
+		"title": "Mt. Holloway",
+		"description": "You are at the base of a large, looming mountain.",
+		"coordinates": "(62,52)",
+		"elevation": 1,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [],
+		"exits": [
+			"s",
+			"e",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 150,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(63,52)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 135,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(63,53)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [],
+		"exits": [
+			"s",
+			"e"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 106,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(64,53)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [
+			"Matt Herich"
+		],
+		"items": [],
+		"exits": [
+			"n",
+			"s",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 100,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(64,54)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [],
+		"exits": [
+			"s",
+			"e",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 68,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(63,54)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"e"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 52,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(63,55)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"s",
+			"e"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 35,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(63,56)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [
+			"nike",
+			"Leana"
+		],
+		"items": [],
+		"exits": [
+			"s",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 12,
+		"title": "Mt. Holloway",
+		"description": "You are on the side of a steep incline.",
+		"coordinates": "(61,57)",
+		"elevation": 3,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"s",
+			"e",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 22,
+		"title": "The Peak of Mt. Holloway",
+		"description": "You are standing at the zenith of Mt. Holloway. You see before you a holy shrine erected in the image of a magnificent winged deity.",
+		"coordinates": "(61,55)",
+		"elevation": 5,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"s",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 12,
+		"title": "Mt. Holloway",
+		"description": "You are on the side of a steep incline.",
+		"coordinates": "(61,57)",
+		"elevation": 3,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"s",
+			"e",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 21,
+		"title": "Mt. Holloway",
+		"description": "You are on the side of a steep incline.",
+		"coordinates": "(60,57)",
+		"elevation": 2,
+		"terrain": "MOUNTAIN",
+		"players": [
+			"a girl has no name"
+		],
+		"items": [],
+		"exits": [
+			"e",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
 	}
 ]

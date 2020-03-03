@@ -9,7 +9,9 @@ async function wrapper() {
     async function exploration() {
         const island = new IslandMap();
         island.loadGraph('island-map.json');
-        const rooms = [];
+        island.loadRooms('island-rooms.json');
+        // const rooms = [];
+
         let r = null;
         while (island.size() < 500) {
             console.log('size of map:', island.size());
@@ -56,8 +58,9 @@ async function wrapper() {
                     if (err) throw err; 
                     console.log(`${roomID} : ${JSON.stringify(island.grid[roomID])} written to file`);
                 })
-                rooms.push(r);
-                fs.writeFile('island-rooms.json', JSON.stringify(rooms, null, "\t"), 'utf8', (err) => {
+                // rooms.push(r);
+                island.rooms.push(r);
+                fs.writeFile('island-rooms.json', JSON.stringify(island.rooms, null, "\t"), 'utf8', (err) => {
                     if (err) throw Error(err);
                     console.log(`Room #${r.room_id} written to file`);
                 });
@@ -68,6 +71,7 @@ async function wrapper() {
             }
             return island;
         }
+
     const start = Date.now();
     const mapped = await exploration();
     const end = Date.now();

@@ -10,6 +10,7 @@ class IslandMap {
     constructor() {
         this.grid = {};
         this.path = [];
+        this.rooms = [];
     }
 
     output = (filename,object) => {
@@ -22,6 +23,11 @@ class IslandMap {
     loadGraph = (filename) => {
         const data = require(`./${filename}`);
         this.grid =  data;
+    }
+
+    loadRooms = (filename) => {
+        const data = require(`./${filename}`);
+        this.rooms = data;
     }
 
     bfs = (roomID, destID='?') => {
