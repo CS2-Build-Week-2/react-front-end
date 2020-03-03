@@ -1,7 +1,7 @@
 const LinkedList = require('../utils/linkedlist');
 
 class Queue {
-    constructor(data=null) {
+    constructor() {
         // this.queue = new LinkedList(data);
         this.queue = [];
     }

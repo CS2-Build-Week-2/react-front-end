@@ -4,6 +4,7 @@ const token = process.env.API_KEY;
 // const us = require('underscore');
 const _ = require('underscore');
 const Queue = require('../utils/queue');
+const fs = require('fs');
 
 class IslandMap {
     constructor() {
@@ -11,7 +12,19 @@ class IslandMap {
         this.path = [];
     }
 
-    bfs = (roomID) => {
+    output = (filename,object) => {
+        fs.writeFile(filename, JSON.stringify(object, null, "\t"), 'utf8', (err) => {
+            if (err) throw err; 
+            console.log(`${object} written to file`);
+        })
+    }
+
+    loadGraph = (filename) => {
+        const data = require(`./${filename}`);
+        this.grid =  data;
+    }
+
+    bfs = (roomID, destID='?') => {
         const q = new Queue();
         const visited = new Set();
         q.enque([roomID]);
@@ -19,19 +32,21 @@ class IslandMap {
 
         while (q.size() > 0) {
             const path = q.deque();
+            // console.log('queue with all paths: ', q);
             console.log('path',path);
             const rID = path[path.length-1];
             if (!(rID in visited)) {
-                if (rID === '?') {
+                if (rID === destID) {
                     return path;
                 } else {
                     visited.add(rID);
                 }
                 const nextIDs = this.neighbors(rID); 
-                // console.log(nextIDs);
+                console.log('neighbor roomIDs: ', nextIDs);
                 nextIDs.forEach(nID => {
                     const newPath = [...path];
                     newPath.push(nID);
+                    console.log('new path from neighbors', newPath);
                     q.enque(newPath);
                 })
             }
@@ -42,6 +57,7 @@ class IslandMap {
         let roomID = trail.shift();
         trail.pop(); // get rid of the first and last elements of the trail.  to get to the room that has unexplored exits.
         console.log('trail in backtrack', trail);
+        let next = null;
         for (let i=0; i<trail.length; i++) {
             // console.log('i in for loop of backtrack', i, 'roomID', roomID, trail[i]);
             const step = trail[i];
@@ -55,23 +71,24 @@ class IslandMap {
             try {
                 // console.log(nextWay)
                 console.log('roomID', roomID, 'way', nextWay, 'stepping room', step);
-                console.log(this.grid);
-                console.log('travelling');
-                const next = await this.travel(nextWay); //TODO: WISE EXPLORER
+                console.log('backtracking traveling...');
+                next = await this.travel(nextWay); //TODO: WISE EXPLORER
                 await this.wait(next.cooldown); 
-                console.log('after traveling in backtrack, next room: ', next.room_id);
+                console.log('backtracked 1 room to:', next.room_id);
                 // const room = await this.currentRoom();
                 roomID = next.room_id;
                 this.path.push(nextWay);
             } catch(err) {
                 throw Error(err);
             }
+            // this.output('test.json',this.grid);
         }
+        return next;
     }
 
     neighbors = (rID) => {
         const neighWaze = Object.entries(this.grid[rID]).filter(w => w[1]);
-        console.log('neighbors', neighWaze);
+        // console.log('neighbors', neighWaze);
         const neighIDs = neighWaze.map( way => way[1])
         console.log(neighIDs);
         return neighIDs;
@@ -171,3 +188,26 @@ class IslandMap {
 }
 
 module.exports = IslandMap;
+
+
+
+// async function wrapper() {
+
+//     i = new IslandMap()
+//     i.load_grid('island-map.json');
+//     const start = await i.currentRoom();
+//     i.loadRoom(start.room_id);
+//     console.log(i.grid[start.room_id]);
+//     const trail = i.bfs(start.room_id);
+//     const back = await i.backtrack(trail);
+//     i.output('test.json',i.grid);
+//     console.log(start,trail,back);
+// }
+
+// wrapper();
+
+
+
+
+
+
