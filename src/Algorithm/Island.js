@@ -11,6 +11,7 @@ class IslandMap {
         this.grid = {};
         this.path = [];
         this.rooms = [];
+        this.roomData = new Set();
     }
 
     output = (filename,object) => {
@@ -28,6 +29,7 @@ class IslandMap {
     loadRooms = (filename) => {
         const data = require(`./${filename}`);
         this.rooms = data;
+        this.roomData = new Set(data);
     }
 
     bfs = (roomID, destID='?') => {
@@ -108,18 +110,9 @@ class IslandMap {
     }
 
     travel = async (way) => {
-        // console.log('way in travel', way);
         try {
-            // console.log(axiosAuth(token));
-            // let room = null;
-            // if (r_id) {
-            //     const res = await axiosAuth(token).post('/adv/move',{direction : way, 'next_room_id' : String(r_id)})
-            //     room = res.data;
-            // }
-            // else {
-            const res = await axiosAuth(token).post('/adv/move',{direction : way})
+            const res = await axiosAuth(token).post('/adv/move',{direction : way});
             const room = res.data;
-            // }
             return room;
         } catch(err) {
             console.log('error traveling',err.response.data);

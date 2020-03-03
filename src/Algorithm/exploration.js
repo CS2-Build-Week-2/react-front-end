@@ -3,15 +3,16 @@ const IslandMap = require('./Island.js');
 //TODO: write out grid to JSON
 const fs = require('fs');
 
-
 async function wrapper() {
 
     async function exploration() {
         const island = new IslandMap();
-        // island.loadGraph('island-map.json');
-        // island.loadRooms('island-rooms.json');
+        island.loadGraph('island-map.json');
+        island.loadRooms('island-rooms.json');
         // const rooms = [];
         let r = null;
+        let next = null;
+
         while (island.size() < 500) {
             console.log('size of map:', island.size());
             try {
@@ -41,7 +42,6 @@ async function wrapper() {
                 await island.backtrack(path);
                 continue;
             } else { 
-                let next = null;
                 try {
                     next = await island.travel(newWay);
                     island.path.push(newWay);
@@ -59,7 +59,8 @@ async function wrapper() {
                     console.log(`${roomID} : ${JSON.stringify(island.grid[roomID])} written to file`);
                 })
                 // rooms.push(r);
-                island.rooms.push(r)
+                island.rooms.push(r)  //array
+                island.roomData.add(r);  //set
                 fs.writeFile('island-rooms.json', JSON.stringify(island.rooms, null, "\t"), 'utf8', (err) => {
                     if (err) throw Error(err);
                     console.log(`Room #${r.room_id} written to file`);
