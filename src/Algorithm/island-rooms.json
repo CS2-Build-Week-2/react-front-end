@@ -113,5 +113,141 @@
 		"cooldown": 1,
 		"errors": [],
 		"messages": []
+	},
+	{
+		"room_id": 151,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(62,69)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"e",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 172,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(62,70)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"s"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 267,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(62,71)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"shiny treasure"
+		],
+		"exits": [
+			"n",
+			"s",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 271,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(61,71)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"great treasure",
+			"shiny treasure",
+			"shiny treasure",
+			"tiny treasure",
+			"small treasure",
+			"small treasure",
+			"small treasure",
+			"shiny treasure"
+		],
+		"exits": [
+			"n",
+			"e"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 267,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(62,71)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"shiny treasure"
+		],
+		"exits": [
+			"n",
+			"s",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 285,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(62,72)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"s"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
+	},
+	{
+		"room_id": 286,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(62,73)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [],
+		"exits": [
+			"n",
+			"s",
+			"w"
+		],
+		"cooldown": 1,
+		"errors": [],
+		"messages": []
 	}
 ]
