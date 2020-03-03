@@ -99,7 +99,7 @@ class IslandMap {
     }
 
     neighbors = (rID) => {
-        const neighWaze = Object.entries(this.grid[rID]).filter(w => w[1]);
+        // const neighWaze = Object.entries(this.grid[rID]).filter(w => w[1]);
         const neighWaze = Object.entries(this.grid[rID])
         console.log('neighbors of room', rID, neighWaze);
         const neighIDs = neighWaze.map( way => way[1])
