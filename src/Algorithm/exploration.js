@@ -33,12 +33,13 @@ async function wrapper() {
             console.log('way', newWay);
             if (!newWay) {
                 console.log(`no unexplored rooms here at ${roomID}. doing BFS to search for an unexplored exit...`);
-                const trail = island.bfs(roomID);
-                console.log('path after bfs', trail)
-                if (!trail) {
+                // console.log(island.grid);
+                const path = island.bfs(roomID);
+                console.log('path after bfs', path)
+                if (!path) {
                     break;
                 }
-                await island.backtrack(trail);
+                await island.backtrack(path);
                 continue;
             } else { 
                 let next = null;

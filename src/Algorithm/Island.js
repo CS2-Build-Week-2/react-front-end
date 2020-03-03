@@ -35,26 +35,32 @@ class IslandMap {
         const visited = new Set();
         q.enque([roomID]);
         console.log(q);
+        console.log('current room', roomID);
 
         while (q.size() > 0) {
+            console.log('queue length', q.size());
             const path = q.deque();
             // console.log('queue with all paths: ', q);
-            console.log('path',path);
+            console.log('oldest path dequed',path);
             const rID = path[path.length-1];
-            if (!(rID in visited)) {
+            console.log('roomID', rID);
+            console.log('visited', visited);
+            console.log('roomID in visited', visited.has(rID))
+
+            if (!visited.has(rID)) {
                 if (rID === destID) {
                     return path;
                 } else {
                     visited.add(rID);
+                    const nextIDs = this.neighbors(rID); 
+                    console.log('neighbor roomIDs: ', nextIDs);
+                    nextIDs.forEach(nID => {
+                        const newPath = [...path];
+                        newPath.push(nID);
+                        q.enque(newPath);
+                    })
                 }
-                const nextIDs = this.neighbors(rID); 
-                console.log('neighbor roomIDs: ', nextIDs);
-                nextIDs.forEach(nID => {
-                    const newPath = [...path];
-                    newPath.push(nID);
-                    console.log('new path from neighbors', newPath);
-                    q.enque(newPath);
-                })
+                
             }
         }
     }
@@ -94,9 +100,10 @@ class IslandMap {
 
     neighbors = (rID) => {
         const neighWaze = Object.entries(this.grid[rID]).filter(w => w[1]);
-        // console.log('neighbors', neighWaze);
+        const neighWaze = Object.entries(this.grid[rID])
+        console.log('neighbors of room', rID, neighWaze);
         const neighIDs = neighWaze.map( way => way[1])
-        console.log(neighIDs);
+        // console.log(neighIDs);
         return neighIDs;
     }
 
