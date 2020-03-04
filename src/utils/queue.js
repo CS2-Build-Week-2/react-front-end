@@ -1,9 +1,12 @@
 const LinkedList = require('../utils/linkedlist');
 
 class Queue {
-    constructor() {
+    constructor(data=null) {
         // this.queue = new LinkedList(data);
         this.queue = [];
+        if (data) {
+            this.queue.push(data);
+        }
     }
 
     enque(val) {

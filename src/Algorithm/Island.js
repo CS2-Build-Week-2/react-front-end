@@ -4,6 +4,7 @@ const token = process.env.API_KEY;
 // const us = require('underscore');
 const _ = require('underscore');
 const Queue = require('../utils/queue');
+const Stack = require('../utils/stack');
 const fs = require('fs');
 
 class IslandMap {
@@ -32,18 +33,47 @@ class IslandMap {
         this.roomData = new Set(data);
     }
 
-    bfs = (roomID, destID='?') => {
-        const q = new Queue();
+    dfs = (startID, endID) => {
+        const s = new Stack([startID]);
         const visited = new Set();
-        q.enque([roomID]);
-        console.log(q);
-        console.log('current room', roomID);
+        // s.push([startID]);
+        // console.log(s);
+        let runCounter = 0;
 
+        while (s.size() > 0) {
+            const path = s.pop();
+            const roomID = path[path.length - 1];
+            if (!visited.has(roomID)) {
+                if (roomID == endID) {
+                    // console.log('run counter for dfs: ', runCounter);
+                    return path;
+                } else {
+                    visited.add(roomID);
+                }
+                const neighIDs = this.neighbors(roomID);
+                neighIDs.forEach(nID => {
+                    const longerPath = [...path];
+                    longerPath.push(nID);
+                    s.push(longerPath);
+                })
+            }
+            runCounter++;
+        }
+    }
+
+
+    bfs = (roomID, destID='?') => {
+        const q = new Queue([roomID]);
+        const visited = new Set();
+        // q.enque([roomID]);
+        // console.log(q);
+        // console.log('current room', roomID);
+        let runCounter = 0;
         while (q.size() > 0) {
-            console.log('queue length', q.size());
+            // console.log('queue length', q.size());
             const path = q.deque();
             // console.log('queue with all paths: ', q);
-            console.log('oldest path dequed',path);
+            // console.log('oldest path dequed',path);
             const rID = path[path.length-1];
             // console.log('roomID', rID);
             // console.log('visited', visited);
@@ -51,11 +81,12 @@ class IslandMap {
 
             if (!visited.has(rID)) {
                 if (rID === destID) {
+                    // console.log('run counter for bfs: ', runCounter);
                     return path;
                 } else {
                     visited.add(rID);
                     const nextIDs = this.neighbors(rID); 
-                    console.log('neighbor roomIDs: ', nextIDs);
+                    // console.log('neighbor roomIDs: ', nextIDs);
                     nextIDs.forEach(nID => {
                         const newPath = [...path];
                         newPath.push(nID);
@@ -64,6 +95,7 @@ class IslandMap {
                 }
                 
             }
+            runCounter++;
         }
     }
 
@@ -100,19 +132,37 @@ class IslandMap {
         return next;
     }
 
-    neighbors = (rID) => {
+    neighbors = (rID,waze=false) => {
         // const neighWaze = Object.entries(this.grid[rID]).filter(w => w[1]);
         const neighWaze = Object.entries(this.grid[rID])
-        console.log('neighbors of room', rID, neighWaze);
+
+        if (waze) {
+            return neighWaze;
+        }
+       
+        // console.log('neighbors of room', rID, neighWaze);
         const neighIDs = neighWaze.map( way => way[1])
         // console.log(neighIDs);
         return neighIDs;
     }
 
-    travel = async (way) => {
+    travel = async (way,apiKey=token) => {
         try {
-            const res = await axiosAuth(token).post('/adv/move',{direction : way});
+            const res = await axiosAuth(apiKey).post('/adv/move',{direction : way});
             const room = res.data;
+            await this.wait(room.cooldown);
+            return room;
+        } catch(err) {
+            console.log('error traveling',err.response.data);
+        }
+    }
+
+    wiseMove = async (way,rID,apiKey) => {
+        try {
+            const res = await axiosAuth(apiKey).post('/adv/move',{direction : way, next_room_id : String(rID)});
+            const room = res.data;
+            console.log('wise move cool down: ', room.cooldown);
+            await this.wait(room.cooldown);
             return room;
         } catch(err) {
             console.log('error traveling',err.response.data);
@@ -129,15 +179,29 @@ class IslandMap {
         return new Promise((resolve,reject) => setTimeout(() => resolve('time to move!'),millisecs));
     }
 
-    currentRoom = async () => {
+    currentRoom = async (apiKey=token) => {
         try {
-            const res = await axiosAuth(token).get('/adv/init');
+            const res = await axiosAuth(apiKey).get('/adv/init');
             const room = res.data;
+            await this.wait(room.cooldown);
             // console.log(room);
             return room;
         } catch(err) {
             // console.log(err.response.data.detail);
             return err.response.data.detail;
+        }
+    }
+
+    pickup = async (item,apiKey=token) => {
+        try {
+            const res = await axiosAuth(apiKey).post('/adv/take',{name : item});
+            // await this.wait(res.data.cooldown);
+            console.log('pickup response', res.data);
+            const status = await axiosAuth(apiKey).post('/adv/status');
+            // await this.wait(status.data.cooldown)
+            return status.data.items
+        } catch(err) {
+            throw Error('error picking up', err)
         }
     }
 

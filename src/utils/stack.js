@@ -1,6 +1,9 @@
 class Stack {
-    constructor(data) {
-        this.stack = [data]
+    constructor(data=null) {
+        this.stack = [];
+        if (data) {
+            this.stack.push(data);
+        }
     }
 
     push(val) {
@@ -16,12 +19,14 @@ class Stack {
     }
 }
 
-s = new Stack(10);
-s.push(20);
-s.push(30);
-s.push(40);
-s.pop();
-s.push(60);
-const z = s.size();
-console.log(s,z);
+module.exports = Stack;
+
+// s = new Stack(10);
+// s.push(20);
+// s.push(30);
+// s.push(40);
+// s.pop();
+// s.push(60);
+// const z = s.size();
+// console.log(s,z);
 
