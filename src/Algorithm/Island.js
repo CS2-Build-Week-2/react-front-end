@@ -1,6 +1,6 @@
 require('dotenv').config();
 const axiosAuth = require('../utils/axiosAuth');
-const token = process.env.API_KEY;
+const token = process.env.NEW_API_KEY;
 // const us = require('underscore');
 const _ = require('underscore');
 const Queue = require('../utils/queue');
@@ -99,7 +99,7 @@ class IslandMap {
         }
     }
 
-    backtrack = async (trail) => {
+    backtrack = async (trail,apiKey=token) => {
         let roomID = trail.shift();
         trail.pop(); // get rid of the first and last elements of the trail.  to get to the room that has unexplored exits.
         console.log('trail in backtrack', trail);
@@ -108,8 +108,10 @@ class IslandMap {
             // console.log('i in for loop of backtrack', i, 'roomID', roomID, trail[i]);
             const step = trail[i];
             // console.log('step', step);
-            let [nextWay] = Object.entries(this.grid[roomID]).filter(way => this.grid[roomID][way[0]] == step);
-            nextWay = nextWay[0];
+            let [waze] = Object.entries(this.grid[roomID]).filter(way => this.grid[roomID][way[0]] == step);
+            // nextWay = nextWay[0];
+            const [nextWay,rID] = waze;
+
             // console.log('nextWay in backtrack', nextWay);
             // console.log('roomID', roomID);
             // console.log(this.grid);
@@ -118,7 +120,8 @@ class IslandMap {
                 // console.log(nextWay)
                 console.log('roomID', roomID, 'way', nextWay, 'stepping room', step);
                 console.log('backtracking traveling...');
-                next = await this.travel(nextWay); //TODO: WISE EXPLORER
+                // next = await this.travel(nextWay); //TODO: WISE EXPLORER
+                next = await this.wiseMove(nextWay,rID,apiKey);
                 await this.wait(next.cooldown); 
                 console.log('backtracked 1 room to:', next.room_id);
                 // const room = await this.currentRoom();
@@ -157,7 +160,7 @@ class IslandMap {
         }
     }
 
-    wiseMove = async (way,rID,apiKey) => {
+    wiseMove = async (way,rID,apiKey=token) => {
         try {
             const res = await axiosAuth(apiKey).post('/adv/move',{direction : way, next_room_id : String(rID)});
             const room = res.data;
