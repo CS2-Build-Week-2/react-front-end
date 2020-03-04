@@ -1,8 +1,10 @@
 const IslandMap = require('./Island');
 const fs = require('fs');
+process.argv.length >= 3 ? apiKey = process.argv[2] : apiKey = process.env.NEW_API_KEY;
 const island = new IslandMap();
 island.loadGraph('./island-map.json');
-island.loadRooms('./island-rooms1_old.json');
+island.loadRooms('./rooms.json');
+const _ = require('underscore');
 
 function sortRooms(island) {
     let sorted = island.rooms.sort((roomA,roomB) => Number(roomA.room_id) > Number(roomB.room_id) ? 1 : -1);
@@ -23,7 +25,7 @@ function sortRooms(island) {
     return explored;
 }
 
-const explored = sortRooms(island);
+// const explored = sortRooms(island);
 
 
 function getUnexplored(explored) {
@@ -40,4 +42,37 @@ function getUnexplored(explored) {
 
 }
 
-getUnexplored(explored);
+// getUnexplored(explored);
+
+async function recordRooms(island) {
+    // console.log('island in recordroom', island.grid);
+    const unexplored = require('./unexplored.json');
+    let room = await island.currentRoom(apiKey);
+    console.log('room in recordRooms', room.room_id);
+
+    dfsPaths = [];
+
+    for (let i=0; i<unexplored.length; i++) {
+        const currID = room.room_id;
+        const newID = unexplored[i];
+        const path = island.dfs(currID,newID);
+        dfsPaths.push(path);
+    }
+
+    const sortedPaths = dfsPaths.sort((a,b) => a.length > b.length ? 1 : -1);
+    // console.log(sortedPaths);
+    sortedPaths.shift()
+    console.log(sortedPaths[0]);  //this is the closest room that has not been recorded.
+    
+    
+
+
+
+    // unexplored.forEach(rID => {
+
+    // })
+
+}
+
+
+recordRooms(island);
