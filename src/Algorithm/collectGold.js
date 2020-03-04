@@ -3,6 +3,8 @@ const axiosAuth = require('../utils/axiosAuth');
 process.argv.length >= 3 ? apiKey = process.argv[2] : apiKey = process.env.NEW_API_KEY;
 const IslandMap = require('./Island');
 const _ = require('underscore');
+const fs = require('fs');
+
 
 
 //check current room for items.
@@ -21,30 +23,63 @@ const _ = require('underscore');
 async function collectGold(target=1000) {
     const island = new IslandMap();
     island.loadGraph('./island-map.json');
-    island.loadRooms('./island-rooms.json');
+    island.loadRooms('./rooms.json');
     let room = await island.currentRoom(apiKey);
-    console.log('start room', room);
 
-    if (room.items.length > 1) { //items in current room.  pick them up.
-       const item =  _.sample(room.items);
-       console.log(item);
-       await island.pickup(item,apiKey);
-    } 
-    else {
-        while (!room.items.length) {
-            const neighbors = island.neighbors(room.room_id,true);  //true to return the exits with the neighids
-            console.log('potential neighboring rooms with items: \n', neighbors);
-            const [way,nextID] = _.sample(neighbors);
-            // room = await island.travel(way,apiKey);
-            room = await island.wiseMove(way,nextID,apiKey);
-            console.log('cooldown wise move', room.cooldown);
-            room.items.length ? console.log(`items in room ${room.room_id}: ${room.items}`) : console.log('no items in room');
-        }
+    const status = await axiosAuth(apiKey).post('/adv/status')
+    await island.wait(status.data.cooldown);
+    console.log(status.data);
+    const weight = status.data.encumbrance;
 
-        const item =  _.sample(room.items);
-        const inventory = await island.pickup(item,apiKey);
-        console.log('inventory', inventory);
+    while (weight < 15) {  //15 arbritrary value chosen to stop picking up items.
+            room = await island.currentRoom(apiKey);
+            console.log('start room', room);
+
+            if (room.items.length > 1) { //items in current room.  pick them up.
+                room.items.forEach(async item => {
+                    await island.pickup(item,apiKey);
+                })
+                 // const item =  _.sample(room.items);
+                // console.log(item);
+                // await island.pickup(item,apiKey);
+            } 
+            else {
+                while (!room.items.length) {
+                    const neighbors = island.neighbors(room.room_id,true);  //true to return the exits with the neighids
+                    console.log('potential neighboring rooms with items: \n', neighbors);
+                    const [way,nextID] = _.sample(neighbors);
+                    // room = await island.travel(way,apiKey);
+                    room = await island.wiseMove(way,nextID,apiKey);
+                    room.items.length ? console.log(`items in room ${room.room_id}: ${room.items}`) : console.log('no items in room',room.room_id);
+                }
+
+                const item =  _.sample(room.items);
+                const inventory = await island.pickup(item,apiKey);
+                console.log('inventory', inventory);
+            }
     }
+
+    const shop = findShop();
+
+    
+
+
+}
+
+collectGold();
+
+function findShop() {
+    const shop = island.rooms.filter(r => r.room_id !== room.room_id);
+}
+
+
+
+
+
+
+
+
+
 
     // else {  //find the closest room with an item.  
     //     const roomsWithItems = island.rooms.filter(r => r.items.length && r.room_id !== room.room_id);
@@ -79,10 +114,6 @@ async function collectGold(target=1000) {
     //         //pickup item TODO:
     //     }
     // }
-}
-
-collectGold();
-
 
 
 // if (process.argv.length >= 3) {

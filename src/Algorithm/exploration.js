@@ -59,7 +59,7 @@ async function wrapper() {
                     console.log(`${roomID} : ${JSON.stringify(island.grid[roomID])} written to file`);
                 })
                 // rooms.push(r);
-                island.rooms.push(r)  //array
+                // island.rooms.push(r)  //array
                 island.roomData.add(r);  //set
                 fs.writeFile('island-rooms.json', JSON.stringify(island.rooms, null, "\t"), 'utf8', (err) => {
                     if (err) throw Error(err);

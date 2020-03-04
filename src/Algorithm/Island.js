@@ -195,10 +195,10 @@ class IslandMap {
     pickup = async (item,apiKey=token) => {
         try {
             const res = await axiosAuth(apiKey).post('/adv/take',{name : item});
-            // await this.wait(res.data.cooldown);
+            await this.wait(res.data.cooldown);
             console.log('pickup response', res.data);
             const status = await axiosAuth(apiKey).post('/adv/status');
-            // await this.wait(status.data.cooldown)
+            await this.wait(status.data.cooldown)
             return status.data.items
         } catch(err) {
             throw Error('error picking up', err)
