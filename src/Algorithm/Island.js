@@ -45,9 +45,9 @@ class IslandMap {
             // console.log('queue with all paths: ', q);
             console.log('oldest path dequed',path);
             const rID = path[path.length-1];
-            console.log('roomID', rID);
-            console.log('visited', visited);
-            console.log('roomID in visited', visited.has(rID))
+            // console.log('roomID', rID);
+            // console.log('visited', visited);
+            // console.log('roomID in visited', visited.has(rID))
 
             if (!visited.has(rID)) {
                 if (rID === destID) {

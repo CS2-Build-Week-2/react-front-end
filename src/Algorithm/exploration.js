@@ -74,9 +74,13 @@ async function wrapper() {
         }
 
     const start = Date.now();
-    const mapped = await exploration();
+    const islandMap = await exploration();
+
     const end = Date.now();
     console.log('Execution time: ', Math.ceil((end - start) / 1000),'seconds');
-    console.log(mapped.grid,mapped.path);
+    console.log(islandMap.grid,islandMap.path);
+    module.exports = islandMap;
+    // return islandMap;
 }
 wrapper();
+
