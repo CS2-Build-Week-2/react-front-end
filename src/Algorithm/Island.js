@@ -172,6 +172,27 @@ class IslandMap {
         }
     }
 
+    oneStep = async (roomID,stepID,apiKey=token) => {
+        console.log('roomID in oneStep', roomID, 'stepID', stepID);
+    
+        if (roomID === stepID) {
+            try {
+                const room =  await this.currentRoom(apiKey);
+                console.log('already at the room', stepID);
+                return room;
+            } catch(err) {throw Error('current room', err)}
+        } 
+        
+        else {
+            const stepNeighbors = this.neighbors(roomID,true);
+            const [way,rID] = stepNeighbors.find(wz => wz[1] === stepID);
+            try {
+                const room = await this.wiseMove(way,rID,apiKey);
+                return room;
+            } catch(err) {throw Error('could not move to shop next door', err)}
+        }
+    } 
+
 
     size = () => {
         return Object.keys(this.grid).length

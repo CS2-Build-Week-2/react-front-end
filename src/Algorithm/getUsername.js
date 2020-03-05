@@ -80,6 +80,8 @@ async function oneStep(roomID,stepID) {
     }
 }
 
+exports.oneStep = oneStep;
+
 
 // const wishingWell = island.rooms.find(r => r.title === "Wishing Well");
 // const shop = island.rooms.find(r => r.room_id == 1);
