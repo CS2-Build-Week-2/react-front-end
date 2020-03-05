@@ -4,6 +4,7 @@ island.loadGraph('./island-map.json')
 island.loadRooms('./rooms.json');
 const cli = require('../utils/cliUsername');
 const axiosAuth = require('../utils/axiosAuth');
+const fs = require('fs');
 
 const [,apiKey] = cli();
 
@@ -35,8 +36,10 @@ async function wishingWell() {
     }
 
     // well = await island.currentRoom(apiKey);
-    const water = await gaze();
-    console.log(water);
+    const waterMsg = await gaze();
+    const waterArr = waterMsg.split('\n');
+
+    fs.writeFile('water.ls8',JSON.stringify(waterArr,null,'\t'),(err) => err ? Error('error writing water code', err) : console.log('wrote water code to water.ls8'));
 }
 
 async function gaze() {
@@ -45,7 +48,7 @@ async function gaze() {
         console.log(res);
         // await island.wait(res.data.cooldown)
         // console.log(res.data);
-        return res.data;
+        return res.data.description;
     } catch(err) {throw Error('unable to gaze into the waters')}
 }
 
