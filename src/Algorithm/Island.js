@@ -199,10 +199,11 @@ class IslandMap {
         try {
             const res = await axiosAuth(apiKey).post('/adv/take',{name : item});
             await this.wait(res.data.cooldown);
-            console.log('pickup response', res.data);
-            const status = await axiosAuth(apiKey).post('/adv/status');
-            await this.wait(status.data.cooldown)
-            return status.data.items
+            // console.log('pickup response', res.data);
+            // const status = await axiosAuth(apiKey).post('/adv/status');
+            // await this.wait(status.data.cooldown)
+            // return status.data.inventory
+            return res.data.messages.length ?res.data.messages : res.data.errors
         } catch(err) {
             throw Error('error picking up', err)
         }
