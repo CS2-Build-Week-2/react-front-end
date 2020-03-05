@@ -22,15 +22,21 @@ async function collectGold(target=1000) {
     console.log('player status', status);
     let gold = status.gold;
     console.log('current gold', gold);
-    
+    let room = await island.currentRoom(apiKey);
+    console.log('current room', room.room_id);
+
     while (gold < target) {
-        let room = await island.currentRoom(apiKey);
-        await findItems();
+        room = await island.currentRoom(apiKey);
+        console.log('current room', room.room_id);
+        room = await findItems(room);
         await gotoShop(room);
         const stuff = await inventory();
         gold = await sellItems(stuff);
         console.log('total gold: ', gold);
     }
+   
+    await gotoShop(room);
+
 }
 
 collectGold(targetGold);
@@ -38,14 +44,14 @@ collectGold(targetGold);
 // console.log('api key', apiKey);
 
 
-async function findItems() {
+async function findItems(room) {
 
-    let room = await island.currentRoom(apiKey);
+    // let room = await island.currentRoom(apiKey);
     const status = getinfo()
     let weight = status.encumbrance;
 
     while (weight <= 15) {  //15 arbritrary value chosen to stop picking up items.
-        room = await island.currentRoom(apiKey);
+        // room = await island.currentRoom(apiKey);
         console.log('start room', room.room_id, 'room items', room.items);
 
         if (room.items.length > 1) { //items in current room.  pick them up.
@@ -103,22 +109,36 @@ async function findItems() {
 
 
 async function gotoShop(room) {
-    const shopData = island.rooms.find(r => r.title == 'Shop');  //stored in an array of room data from the exploration script.
+    let shopData = island.rooms.find(r => r.title == 'Shop');  //stored in an array of room data from the exploration script.
+    if (!shopData) {
+        shopData = {room_id : 1};
+    }
+
     const shopath = island.dfs(room.room_id,shopData.room_id);
     let stepRoom;
     let shop;
     console.log('path to shop', shopath);
-    if (shopath.length === 1) {
-        shop = await island.currentRoom(apiKey);
-        console.log('at the shop.')
-        return shop;
+    if (shopath.length === 1) { //no need to backtrack, already at the shop.  
+        try {
+            shop = await island.currentRoom(apiKey);
+            console.log('already at the shop.')
+            return shop;
+        } catch(err) {throw Error('could not get shop info',err)}
+    } else if (shopath.length === 2) {  //backtrack doesnt work for two element dfs paths because 1st and last elements removed
+        const stepNeighbors = island.neighbors(room.room_id,true);
+        const [way,rID] = stepNeighbors.find(wz => wz[1] === shopData.room_id);
+        try {
+            shop = await island.wiseMove(way,rID,apiKey);
+            console.log('made it to the shop:',shop);
+            return shop;
+        } catch(err) {throw Error('could not move to shop next door', err)}
     }
     try {
         stepRoom = await island.backtrack(shopath,apiKey);  //room adjacent to the shop.
         const stepNeighbors = island.neighbors(stepRoom.room_id,true);
         const [way,rID] = stepNeighbors.find(wz => wz[1] === shopData.room_id);
         shop = await island.wiseMove(way,rID,apiKey);
-        console.log('made it to the shop:',shop.room_id);
+        console.log('made it to the shop:',shop);
         return shop;
     }
     catch(err) {
@@ -129,25 +149,25 @@ async function gotoShop(room) {
 async function sellItems(stuff) {
     // const item = stuff[0];
     console.log('stuff in sellItems', stuff);
+    
+    for (item of stuff) {
+        console.log('item to sell', item);
+        try {
+            const res = await axiosAuth(apiKey).post('/adv/sell', {name : item, confirm : 'yes'});
+            console.log(res.data.messages);
+            await island.wait(res.data.cooldown);
+            // console.log('sold item', item);
+        } catch(err) {
+            throw Error('unable to sell item ', item, err)
+        }
+    }
+
     try {
         const {gold} = await getinfo();
         return gold;
     } catch(err) {
         throw Error('cannot get player info from sellItems', err);
     }
-    
-    // for (item of stuff) {
-    //     console.log('item to sell', item);
-    //     try {
-    //         const res = await axiosAuth(apiKey).post('/adv/sell', {name : item, confirm : 'yes'});
-    //         console.log(res.data.messages);
-    //         await island.wait(res.data.cooldown);
-    //         // console.log('sold item', item);
-    //     } catch(err) {
-    //         throw Error('unable to sell item ', item, err)
-    //     }
-    // }
-    
 }
 
 
