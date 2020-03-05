@@ -23,6 +23,7 @@ async function collectGold(target=1000) {
     let gold = status.gold;
     console.log('current gold', gold);
     let room = await island.currentRoom(apiKey);
+    let stuff = await inventory();
     console.log('current room', room.room_id);
 
     while (gold < target) {
@@ -30,13 +31,15 @@ async function collectGold(target=1000) {
         console.log('current room', room.room_id);
         room = await findItems(room);
         await gotoShop(room);
-        const stuff = await inventory();
+        stuff = await inventory();
         gold = await sellItems(stuff);
         console.log('total gold: ', gold);
     }
-   
+    
     await gotoShop(room);
-
+    stuff = await inventory();
+    gold = await sellItems(stuff);
+    console.log('total gold: ', gold);
 }
 
 collectGold(targetGold);

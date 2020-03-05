@@ -9,6 +9,15 @@ const fs_WriteFile = util.promisify(fs.writeFile);
 
 console.log('apiKey in sortRecord', apiKey);
 
+exports.sortWriteRooms = sortWriteRooms;
+// exports.getUnexplored = getUnexplored;
+// exports.recordRooms = recordRooms;
+// module.exports = {
+//     swr : sortWriteRooms,
+//     gu : getUnexplored,
+//     rr : recordRooms
+// }
+
 function sortWriteRooms() {
     //sorts by room_id and removes duplicate room entries.
     console.log('sort write rooms');

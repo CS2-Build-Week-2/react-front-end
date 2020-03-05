@@ -1,4 +1,4 @@
-
+module.exports = commandLineArgs;
 
 function commandLineArgs() {
     let apiKey=null;
@@ -26,5 +26,3 @@ function commandLineArgs() {
 
     return [targetGold,apiKey]
 }
-
-module.exports = commandLineArgs;
