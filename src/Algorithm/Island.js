@@ -195,6 +195,18 @@ class IslandMap {
         }
     }
 
+    getinfo = async (apiKey=token) => {
+        try {
+            const res = await axiosAuth(apiKey).post('adv/status')
+            await island.wait(res.data.cooldown);
+            const playerInfo = res.data;
+            return playerInfo;
+        } catch(err) {
+            throw Error('unable to get player info', err)
+        }
+    }
+
+
     pickup = async (item,apiKey=token) => {
         try {
             const res = await axiosAuth(apiKey).post('/adv/take',{name : item});

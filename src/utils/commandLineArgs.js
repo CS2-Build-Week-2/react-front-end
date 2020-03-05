@@ -1,7 +1,8 @@
 module.exports = commandLineArgs;
 
 function commandLineArgs() {
-    let apiKey=null;
+    let apiKey = null;
+    
     let targetGold=null;
     if (process.argv.length === 3) {
         if (process.argv[2].length > 5) {
