@@ -9,7 +9,7 @@ const fs_WriteFile = util.promisify(fs.writeFile);
 
 console.log('apiKey in sortRecord', apiKey);
 
-exports.sortWriteRooms = sortWriteRooms;
+// exports.sortWriteRooms = sortWriteRooms;
 // exports.getUnexplored = getUnexplored;
 // exports.recordRooms = recordRooms;
 // module.exports = {

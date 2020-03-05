@@ -8135,5 +8135,828 @@
 			"You have walked south.",
 			"Wise Explorer: -50% CD"
 		]
+	},
+	{
+		"room_id": 308,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(53,51)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"tiny treasure",
+			"small treasure",
+			"small treasure"
+		],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 478,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(51,53)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"small treasure"
+		],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 396,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(54,49)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"great treasure",
+			"shiny treasure",
+			"small treasure",
+			"small treasure",
+			"small treasure",
+			"tiny treasure"
+		],
+		"exits": [
+			"n"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked south.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 491,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(52,52)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"tiny treasure"
+		],
+		"exits": [
+			"n"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked south.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 497,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(50,55)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"tiny treasure",
+			"small treasure"
+		],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 238,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(53,54)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"shiny treasure",
+			"tiny treasure"
+		],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 149,
+		"title": "Mt. Holloway",
+		"description": "You are on the side of a steep incline.",
+		"coordinates": "(59,54)",
+		"elevation": 2,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [
+			"small treasure",
+			"small treasure"
+		],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 419,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(51,56)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"great treasure",
+			"shiny treasure",
+			"tiny treasure",
+			"shiny treasure",
+			"shiny treasure",
+			"tiny treasure",
+			"shiny treasure",
+			"tiny treasure",
+			"shiny treasure"
+		],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 295,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(53,59)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"small treasure",
+			"shiny treasure"
+		],
+		"exits": [
+			"s"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked north.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 495,
+		"title": "The Transmogriphier",
+		"description": "A strange machine stands in this room.  There is a large opening on the top.  A placard reads, \"Test your luck!  One item and one Lambdacoin!\"",
+		"coordinates": "(50,58)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 376,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(51,59)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"shiny treasure",
+			"great treasure",
+			"small treasure",
+			"small treasure",
+			"small treasure",
+			"small treasure",
+			"small treasure"
+		],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 355,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(51,57)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"shiny treasure",
+			"small treasure",
+			"shiny treasure",
+			"shiny treasure"
+		],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 365,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(54,59)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"shiny treasure",
+			"shiny treasure",
+			"small treasure",
+			"great treasure",
+			"shiny treasure"
+		],
+		"exits": [
+			"s"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked north.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 202,
+		"title": "Mt. Holloway",
+		"description": "You are at the base of a large, looming mountain.",
+		"coordinates": "(59,53)",
+		"elevation": 1,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 493,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(50,54)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"great treasure",
+			"shiny treasure",
+			"shiny treasure",
+			"shiny treasure",
+			"small treasure",
+			"small treasure",
+			"small treasure",
+			"tiny treasure",
+			"tiny treasure",
+			"tiny treasure"
+		],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 400,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(52,60)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"shiny treasure",
+			"shiny treasure",
+			"small treasure",
+			"tiny treasure",
+			"small treasure",
+			"small treasure",
+			"small treasure"
+		],
+		"exits": [
+			"s"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked north.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 25,
+		"title": "Mt. Holloway",
+		"description": "You are on the side of a steep incline.",
+		"coordinates": "(60,56)",
+		"elevation": 3,
+		"terrain": "MOUNTAIN",
+		"players": [],
+		"items": [
+			"small treasure",
+			"great treasure",
+			"tiny treasure",
+			"small treasure",
+			"small treasure",
+			"shiny treasure",
+			"small treasure",
+			"small treasure"
+		],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 367,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(64,51)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"shiny treasure",
+			"shiny treasure",
+			"tiny treasure",
+			"tiny treasure"
+		],
+		"exits": [
+			"n"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked south.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 434,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(65,48)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"shiny treasure",
+			"tiny treasure",
+			"great treasure",
+			"shiny treasure",
+			"great treasure",
+			"small treasure",
+			"tiny treasure",
+			"small treasure",
+			"tiny treasure"
+		],
+		"exits": [
+			"n"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked south.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 401,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(67,50)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"great treasure",
+			"tiny treasure",
+			"small treasure",
+			"shiny treasure",
+			"tiny treasure",
+			"tiny treasure"
+		],
+		"exits": [
+			"w"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked east.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 496,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(66,48)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"small treasure",
+			"shiny treasure",
+			"small treasure",
+			"tiny treasure",
+			"tiny treasure",
+			"small treasure",
+			"shiny treasure"
+		],
+		"exits": [
+			"n"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked south.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 389,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(56,51)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"small treasure",
+			"shiny treasure",
+			"shiny treasure",
+			"small treasure",
+			"tiny treasure",
+			"small treasure"
+		],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 260,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(66,51)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"tiny treasure",
+			"tiny treasure",
+			"small treasure"
+		],
+		"exits": [
+			"w"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked east.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 140,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(66,54)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"shiny treasure"
+		],
+		"exits": [
+			"w"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked east.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 354,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(69,52)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"small treasure",
+			"great treasure",
+			"tiny treasure",
+			"shiny treasure",
+			"small treasure",
+			"shiny treasure",
+			"small treasure"
+		],
+		"exits": [
+			"w"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked east.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 356,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(67,51)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [],
+		"exits": [
+			"e"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked west.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 485,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(69,50)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"tiny treasure",
+			"tiny treasure",
+			"shiny treasure"
+		],
+		"exits": [
+			"w"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked east.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 468,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(67,48)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"tiny treasure",
+			"shiny treasure",
+			"shiny treasure",
+			"small treasure",
+			"small treasure"
+		],
+		"exits": [
+			"n"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked south.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 384,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(69,51)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"shiny treasure",
+			"shiny treasure"
+		],
+		"exits": [
+			"w"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked east.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 340,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(67,52)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"small treasure",
+			"tiny treasure"
+		],
+		"exits": [
+			"w"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked east.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 467,
+		"title": "Pirate Ry's",
+		"description": "You see a sign before you that reads:\n\n'You have found Pirate Ry's. Send a `change_name` request and I'll change your identity to whatever you wish... for a price.'",
+		"coordinates": "(68,47)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [
+			"['D Wandering Beard']"
+		],
+		"items": [
+			"tiny treasure",
+			"small treasure"
+		],
+		"exits": [
+			"n"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked south.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 460,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(72,53)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"shiny treasure",
+			"shiny treasure",
+			"shiny treasure",
+			"tiny treasure",
+			"tiny treasure",
+			"small treasure",
+			"tiny treasure",
+			"shiny treasure",
+			"small treasure",
+			"tiny treasure",
+			"shiny treasure",
+			"tiny treasure"
+		],
+		"exits": [
+			"w"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked east.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 435,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(71,54)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"small treasure",
+			"great treasure",
+			"great treasure",
+			"tiny treasure"
+		],
+		"exits": [
+			"w"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked east.",
+			"Wise Explorer: -50% CD"
+		]
+	},
+	{
+		"room_id": 455,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(71,52)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [
+			"small treasure",
+			"small treasure"
+		],
+		"exits": [
+			"n"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked south.",
+			"Wise Explorer: -50% CD"
+		]
 	}
 ]
