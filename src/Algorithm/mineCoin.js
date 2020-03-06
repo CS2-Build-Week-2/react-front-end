@@ -1,25 +1,22 @@
 const fs = require('fs')
 const sha2256 = require('js-sha256');
+const {spawn} = require('child_process');
 
 const IslandMap = require('./Island');
 const cli = require('../utils/cliCoin');
 const axiosAuth = require('../utils/axiosAuth');
 const [targetCoins,apiKey] = cli();
-
-const ls8Code = fs.readFileSync('./ls8_code.txt','utf8');
+const island = new IslandMap()
+island.loadGraph('./island-map.json');
 
 console.log('apiKey in mineCoin', apiKey);
 console.log('target coins to mine: ', targetCoins);
-console.log(`decoded message from LS8: "${ls8Code}"`);
 
-const regexNums = /[0-9]+$/;
-let [mineID] = regexNums.exec(ls8Code);
-mineID = Number(mineID);
-console.log('room id of mining room: ', mineID);
+let mineID = mineRoomInfo();
 
 async function mineCoin(targetCoins=null) {
 
-    await gotoMineRoom();
+    await gotoMineRoom(mineID);
 
     if (targetCoins) {
         const res = await axiosAuth(apiKey).get('/bc/get_balance');
@@ -62,18 +59,23 @@ async function mineCoin(targetCoins=null) {
                 console.log(res.data.messages);
                 console.log('current coin balance: ', coins);
                 mine.condition = (coins < targetCoins);
+                await island.gotoWell(apiKey);
+                //run python3 ls8.py to decode new water code.
+                const ls8 = spawn('python3',['ls8.py']);
+                ls8.on('close', (code) => console.log(`ls8.py script terminated...${code}`));
+                mineID = mineRoomInfo();
+                await gotoMineRoom(mineID)
             } else {
                 const {name,has_mined} = await island.getinfo(apiKey);
                 mine.condition = !has_mined;
                 console.log(`${name} has mined ? ${has_mined}`)
             }
 
-        } catch(err) {throw Error('unable to mine or get coin balance', err)}
+        } catch(err) {console.log('unable to mine or get coin balance',err.response)}
     }
 }
 
-const island = new IslandMap()
-island.loadGraph('./island-map.json');
+
 // island.loadRooms('./rooms.json');
 
 mineCoin(targetCoins);
@@ -91,7 +93,7 @@ function guess(last,nonce,difficulty) {
     return hashPrefix === zeros;
 }
 
-async function gotoMineRoom() {
+async function gotoMineRoom(mineID) {
     let room = await island.currentRoom(apiKey);
 
     const minePath = island.dfs(room.room_id,mineID);
@@ -109,6 +111,16 @@ async function gotoMineRoom() {
     }
 
     return mineRoom;
+}
+
+function mineRoomInfo() {
+    const ls8Code = fs.readFileSync('./ls8_code.txt','utf8');
+    console.log(`decoded message from LS8: "${ls8Code}"`);
+    const regexNums = /[0-9]+$/;
+    let [mineID] = regexNums.exec(ls8Code);
+    mineID = Number(mineID);
+    console.log('room id of mining room: ', mineID);
+    return mineID;
 }
 
 

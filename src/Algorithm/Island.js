@@ -291,6 +291,31 @@ class IslandMap {
         return random_way[0];
     }
 
+    gotoWell = async (apiKey=token) => {
+        try {
+            var room = await this.currentRoom(apiKey);  //var for function scoping.
+        } catch(err) {throw Error('cannot get current room', err)}
+    
+        let well = this.rooms.find(r => r.title === 'Wishing Well' || r.room_id === 55);
+        if (!well) well = {room_id : 55};
+    
+        console.log('well', well.room_id, 'room',room.room_id);
+    
+        const wellPath = this.dfs(room.room_id,well.room_id);
+        console.log('path to the well', wellPath);
+    
+        if (wellPath.length <= 2) {
+            well = await this.oneStep(room.room_id,well.room_id,apiKey);
+            console.log('made it to the well', well);
+        } else {
+            try {
+                room = await this.backtrack(wellPath,apiKey);
+                well = await this.oneStep(room.room_id,well.room_id,apiKey);
+                console.log('made it to the well', well);
+            } catch(err) {throw Error('unable to make it to the wishing well', err)};
+        }
+    }
+
 }
 
 module.exports = IslandMap;

@@ -33,6 +33,8 @@ class LS8_DECODER(LS8):
     
 
 cpu = LS8_DECODER()
+f = open('ls8_code.txt', 'w')  #clear out contents of file before 
+f.close()
 cpu.run()
 
 
