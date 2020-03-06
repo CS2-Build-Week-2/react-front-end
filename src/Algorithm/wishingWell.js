@@ -38,9 +38,10 @@ async function wishingWell() {
     // well = await island.currentRoom(apiKey);
     const waterMsg = await gaze();
     const waterArr = waterMsg.split('\n');
-    waterArr.splice(0,1)
+    waterArr.splice(0,1) //get rid of txt messages.  
 
     // fs.writeFile('water.ls8',waterArr,(err) => err ? Error('error writing water code', err) : console.log('wrote water code to water.ls8'));
+    fs.writeFileSync('water.ls8',''); //clear out file before appending
     const logger = fs.createWriteStream('water.ls8', {flags: 'a'})
 
     for (const byte of waterArr) {

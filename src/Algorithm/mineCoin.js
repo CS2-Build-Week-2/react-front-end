@@ -64,7 +64,6 @@ async function mineCoin(targetCoins=null) {
                 mine.condition = (coins < targetCoins);
             } else {
                 const {name,has_mined} = await island.getinfo(apiKey);
-                // has_mined = player.has_mined;
                 mine.condition = !has_mined;
                 console.log(`${name} has mined ? ${has_mined}`)
             }
@@ -79,7 +78,6 @@ island.loadGraph('./island-map.json');
 
 mineCoin(targetCoins);
 
-
 function guess(last,nonce,difficulty) {
     const hash = sha2256(`${last}${nonce}`);
     let zeros = [];
@@ -88,7 +86,7 @@ function guess(last,nonce,difficulty) {
     }
     zeros = zeros.join('');
 
-    console.log('hash(lastProof,nonce):', hash);
+    // console.log('hash(lastProof,nonce):', hash);
     const hashPrefix = hash.slice(0,zeros.length);
     return hashPrefix === zeros;
 }
