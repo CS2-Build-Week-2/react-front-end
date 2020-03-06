@@ -52,7 +52,6 @@ async function wishingWell() {
     // logger.write('more data') // again
     // logger.write('and more') 
 
-
 }
 
 async function gaze() {
@@ -63,7 +62,5 @@ async function gaze() {
         return res.data.description;
     } catch(err) {throw Error('unable to gaze into the waters')}
 }
-
-
 
 wishingWell();
