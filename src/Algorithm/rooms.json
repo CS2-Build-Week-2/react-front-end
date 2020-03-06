@@ -10551,5 +10551,24 @@
 			"You have walked west.",
 			"Wise Explorer: -50% CD"
 		]
+	},
+	{
+		"room_id": 429,
+		"title": "A misty room",
+		"description": "You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.",
+		"coordinates": "(52,64)",
+		"elevation": 0,
+		"terrain": "NORMAL",
+		"players": [],
+		"items": [],
+		"exits": [
+			"s"
+		],
+		"cooldown": 7.5,
+		"errors": [],
+		"messages": [
+			"You have walked north.",
+			"Wise Explorer: -50% CD"
+		]
 	}
 ]
