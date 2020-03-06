@@ -38,14 +38,26 @@ async function wishingWell() {
     // well = await island.currentRoom(apiKey);
     const waterMsg = await gaze();
     const waterArr = waterMsg.split('\n');
+    waterArr.splice(0,1)
 
-    fs.writeFile('water.ls8',JSON.stringify(waterArr,null,'\t'),(err) => err ? Error('error writing water code', err) : console.log('wrote water code to water.ls8'));
+    // fs.writeFile('water.ls8',waterArr,(err) => err ? Error('error writing water code', err) : console.log('wrote water code to water.ls8'));
+    const logger = fs.createWriteStream('water.ls8', {flags: 'a'})
+
+    for (const byte of waterArr) {
+        logger.write(byte);
+        logger.write('\n');
+    }
+
+    // logger.write('some data') // append string to your file
+    // logger.write('more data') // again
+    // logger.write('and more') 
+
+
 }
 
 async function gaze() {
     try {
         const res = await axiosAuth(apiKey).post('/adv/examine', {name : 'well'});
-        console.log(res);
         // await island.wait(res.data.cooldown)
         // console.log(res.data);
         return res.data.description;

@@ -227,7 +227,6 @@ class IslandMap {
         }
     }
 
-
     pickup = async (item,apiKey=token) => {
         try {
             const res = await axiosAuth(apiKey).post('/adv/take',{name : item});
